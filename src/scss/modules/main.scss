@@ -1,0 +1,49 @@
+.main {
+  min-height: 100vh;
+  &__container{
+    max-width: 1400px;
+  }
+  &__content {
+    text-align: center;
+    position: relative;
+    left: 0;
+    max-width: 56%;
+    padding: 25% 0 10% 0;
+    @media(max-width: 767px){
+      padding: 20% 0 10% 0;
+      max-width: 60%;
+    }
+  }
+
+  &__title {
+    letter-spacing: -2px;
+    color: #2c3e50;
+    @include adaptiv-value('font-size', 80, 50, 0);
+    font-weight: 600;
+    margin: 0 0 30px 0;
+    @media(max-width: 767px){
+      margin: 0 0 15px 0;
+    }
+
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    margin: 0 0 50px 0;
+    color: #76818d;
+    @media(max-width: 767px){
+      margin: 0 0 25px 0;
+    }
+  }
+
+  &__links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+}
+
+
+
+
