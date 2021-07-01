@@ -1,0 +1,44 @@
+.menu {
+
+  &__body {
+  }
+
+  &__list {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    min-height: 64px;
+    align-items: center;
+  }
+
+  &__item {
+    a {
+      display: inline-block;
+      color: #f4f5f6;
+      font-weight: 100;
+      font-size: 16px;
+      padding: 17px 15px 14px 15px;
+      text-transform: uppercase;
+      &::after{
+        content: '';
+        width: 0%;
+        height: 1px;
+        display: block;
+        margin: 0 auto;
+        background-color: #f4f5f6;
+        transition: all 0.5s ease;
+        margin: 3px auto 0 auto;
+      }
+      @media(min-width: 767px){
+        &:hover{
+          &:after{
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &__burger {
+  }
+}
