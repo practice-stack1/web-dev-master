@@ -169,8 +169,70 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _basic_ibg__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_basic_ibg__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _basic_anim_scroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./basic/anim-scroll */ "./src/js/basic/anim-scroll.js");
 /* harmony import */ var _basic_anim_scroll__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_basic_anim_scroll__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _modules_fix_navigation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/fix-navigation */ "./src/js/modules/fix-navigation.js");
+/* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/burger */ "./src/js/modules/burger.js");
 
 
+
+
+window.addEventListener('DOMContentLoaded', function () {
+  Object(_modules_fix_navigation__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  Object(_modules_burger__WEBPACK_IMPORTED_MODULE_3__["default"])('.menu__burger', '.menu__body');
+});
+
+/***/ }),
+
+/***/ "./src/js/modules/burger.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/burger.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var burger = function burger(burgerSelector, menuSelector) {
+  var burger = document.querySelector(burgerSelector),
+      menu = document.querySelector(menuSelector);
+  burger.addEventListener('click', function (e) {
+    console.log(e.target);
+
+    if (e.target.classList.contains('menu__burger') || e.target.parentElement.classList.contains('menu__burger')) {
+      document.body.classList.toggle('_block');
+      menu.classList.toggle('_active');
+      burger.classList.toggle('_active');
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (burger);
+
+/***/ }),
+
+/***/ "./src/js/modules/fix-navigation.js":
+/*!******************************************!*\
+  !*** ./src/js/modules/fix-navigation.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var navPosition = function navPosition() {
+  var mainSectionHeight = document.querySelector('.main').getBoundingClientRect().height,
+      navigation = document.querySelector('.about__navigation');
+  window.addEventListener('scroll', function () {
+    if (window.pageYOffset >= mainSectionHeight) {
+      navigation.classList.add('_fix');
+      navigation.classList.remove('_static');
+    } else {
+      navigation.classList.remove('_fix');
+      navigation.classList.add('_static');
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (navPosition);
 
 /***/ })
 
