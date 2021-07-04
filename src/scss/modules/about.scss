@@ -43,6 +43,14 @@
     background-color: #fff;
     color: #76818d;
     border: 1px solid #76818d;
+    transition: all 0.3s ease;
+    &:hover{
+      background-color: #76818d;
+      color: #fff;
+    }
+    &:active{
+      box-shadow: inset 2px 2px 6px 6px rgba(0, 0, 0, 0.555);
+    }
   }
   &__img-wrapper{
     width: 13px;
