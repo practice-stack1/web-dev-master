@@ -1,19 +1,28 @@
 .main {
-  min-height: 100vh;
   position: relative;
   z-index: 2001;
+
+  @media(max-height: 1080px){
+    min-height: 100vh;
+  }
   &__container{
+    position: relative;
     max-width: 1400px;
+    min-height: 100vh;
+    @media(max-height: 1080px){
+      min-height: 100vh;
+    }
   }
   &__content {
+    position: absolute;
     text-align: center;
-    position: relative;
     left: 0;
+    top: 30%;
     max-width: 56%;
-    padding: 25% 0 10% 0;
+    padding: 0 30px;
     @media(max-width: 767px){
-      padding: 20% 0 10% 0;
-      max-width: 60%;
+      // padding: 20% 0 20% 0;
+      max-width: 100%;
     }
   }
 

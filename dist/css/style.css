@@ -169,21 +169,23 @@ h6 {
 }
 
 .main {
-  min-height: 100vh;
   position: relative;
   z-index: 2001;
 }
 
 .main__container {
+  position: relative;
   max-width: 1400px;
+  min-height: 100vh;
 }
 
 .main__content {
+  position: absolute;
   text-align: center;
-  position: relative;
   left: 0;
+  top: 30%;
   max-width: 56%;
-  padding: 25% 0 10% 0;
+  padding: 0 30px;
 }
 
 .main__title {
@@ -534,8 +536,7 @@ h6 {
 
 @media (max-width: 767px) {
   .main__content {
-    padding: 20% 0 10% 0;
-    max-width: 60%;
+    max-width: 100%;
   }
 
   .main__title {
@@ -544,5 +545,15 @@ h6 {
 
   .main__subtitle {
     margin: 0 0 25px 0;
+  }
+}
+
+@media (max-height: 1080px) {
+  .main {
+    min-height: 100vh;
+  }
+
+  .main__container {
+    min-height: 100vh;
   }
 }

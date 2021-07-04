@@ -5,5 +5,5 @@ import burger from './modules/burger';
 
 window.addEventListener('DOMContentLoaded', function() {
   navPosition();
-  burger('.menu__burger', '.menu__body');
+  burger('.menu__burger', '.menu__body', '.menu__item a');
 });

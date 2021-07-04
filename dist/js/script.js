@@ -177,7 +177,7 @@ __webpack_require__.r(__webpack_exports__);
 
 window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_fix_navigation__WEBPACK_IMPORTED_MODULE_2__["default"])();
-  Object(_modules_burger__WEBPACK_IMPORTED_MODULE_3__["default"])('.menu__burger', '.menu__body');
+  Object(_modules_burger__WEBPACK_IMPORTED_MODULE_3__["default"])('.menu__burger', '.menu__body', '.menu__item a');
 });
 
 /***/ }),
@@ -191,16 +191,31 @@ window.addEventListener('DOMContentLoaded', function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var burger = function burger(burgerSelector, menuSelector) {
+var burger = function burger(burgerSelector, menuSelector, menuItemSelector) {
   var burger = document.querySelector(burgerSelector),
-      menu = document.querySelector(menuSelector);
+      menu = document.querySelector(menuSelector),
+      items = document.querySelectorAll(menuItemSelector);
   burger.addEventListener('click', function (e) {
-    console.log(e.target);
-
     if (e.target.classList.contains('menu__burger') || e.target.parentElement.classList.contains('menu__burger')) {
-      document.body.classList.toggle('_block');
-      menu.classList.toggle('_active');
+      if (document.querySelector('.about__navigation').classList.contains('_fix')) {
+        document.body.classList.toggle('_block');
+      }
+
       burger.classList.toggle('_active');
+      menu.classList.toggle('_active');
+    }
+  });
+  items.forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      menu.classList.remove('_active');
+      burger.classList.remove('_active');
+    });
+  });
+  window.addEventListener('scroll', function () {
+    if (burger.classList.contains('_active') && document.querySelector('.about__navigation').classList.contains('_fix')) {
+      document.body.classList.add('_block');
+    } else {
+      document.body.classList.remove('_block');
     }
   });
 };
@@ -219,9 +234,17 @@ var burger = function burger(burgerSelector, menuSelector) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var navPosition = function navPosition() {
-  var mainSectionHeight = document.querySelector('.main').getBoundingClientRect().height,
-      navigation = document.querySelector('.about__navigation');
+  listenScroll();
+  window.addEventListener('orientationchange', function () {
+    listenScroll();
+  });
+};
+
+function listenScroll() {
+  var navigation = document.querySelector('.about__navigation');
   window.addEventListener('scroll', function () {
+    var mainSectionHeight = document.querySelector('.main').getBoundingClientRect().height;
+
     if (window.pageYOffset >= mainSectionHeight) {
       navigation.classList.add('_fix');
       navigation.classList.remove('_static');
@@ -230,7 +253,7 @@ var navPosition = function navPosition() {
       navigation.classList.add('_static');
     }
   });
-};
+}
 
 /* harmony default export */ __webpack_exports__["default"] = (navPosition);
 
