@@ -3,6 +3,9 @@
   z-index: 999;
   padding: 120px 0 80px 0;
   background: linear-gradient(to bottom, #ffffff 0%, #f4f5f6 49%, #ffffff 100%);
+  @media(max-width: 767px){
+    padding: 120px 0 45px 0
+  }
   &__navigation {
     position: absolute;
     z-index: 999;
@@ -20,7 +23,7 @@
     margin: 0 auto 20px auto;
   }
   &__text{
-    max-width: 600px;
+    max-width: 740px;
     margin: 0 auto 30px auto;
     color: #616e7c;
     line-height: 20px;

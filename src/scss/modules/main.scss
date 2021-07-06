@@ -1,7 +1,5 @@
 .main {
-  position: relative;
   z-index: 2001;
-
   @media(max-height: 1080px){
     min-height: 100vh;
   }
@@ -15,14 +13,16 @@
   }
   &__content {
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     text-align: center;
-    left: 0;
-    top: 30%;
-    max-width: 56%;
-    padding: 0 30px;
+    left: 50px;
+    max-width: 60%;
     @media(max-width: 767px){
-      // padding: 20% 0 20% 0;
-      max-width: 100%;
+      width: 100%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 
