@@ -265,26 +265,53 @@ h6 {
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
   display: inline-block;
-  border-radius: 5px;
+}
+
+.about__download-wrapper {
+  display: block;
+  position: relative;
   padding: 6px 12px;
   min-width: 170px;
   min-height: 34px;
-  background-color: #fff;
-  color: #76818d;
-  border: 1px solid #76818d;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #76818d;
+  border: 1px solid #76818d;
 }
 
-.about__download:hover {
-  background-color: #76818d;
+.about__download:hover .about__download {
+  border: none;
+}
+
+.about__download:hover .about__download-wrapper {
+  -webkit-transition: all 0.5s ease 0.2s;
+  -o-transition: all 0.5s ease 0.2s;
+  transition: all 0.5s ease 0.2s;
+  -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+          transform: translateY(-5px);
+  background-color: #2f4357;
   color: #fff;
+  -webkit-box-shadow: 0 5px 0px 0 #263646;
+          box-shadow: 0 5px 0px 0 #263646;
 }
 
-.about__download:active {
-  -webkit-box-shadow: inset 2px 2px 6px 6px rgba(0, 0, 0, 0.555);
-          box-shadow: inset 2px 2px 6px 6px rgba(0, 0, 0, 0.555);
+.about__download:active .about__download {
+  border: none;
+}
+
+.about__download:active .about__download-wrapper {
+  -webkit-transform: translateY(-3px);
+      -ms-transform: translateY(-3px);
+          transform: translateY(-3px);
+  -webkit-box-shadow: 0 2px 0px 0 #263646;
+          box-shadow: 0 2px 0px 0 #263646;
+  -webkit-transition: all 0.1s ease 0s;
+  -o-transition: all 0.1s ease 0s;
+  transition: all 0.1s ease 0s;
 }
 
 .about__img-wrapper {
