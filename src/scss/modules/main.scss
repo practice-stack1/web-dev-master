@@ -1,5 +1,6 @@
 .main {
   z-index: 2001;
+  min-height: 100%;
   @media(max-height: 1080px){
     min-height: 100vh;
   }
@@ -7,6 +8,7 @@
     position: relative;
     max-width: 1400px;
     min-height: 100vh;
+    padding: 30px 20px;
     @media(max-height: 1080px){
       min-height: 100vh;
     }

@@ -171,6 +171,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _basic_anim_scroll__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_basic_anim_scroll__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _modules_fix_navigation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/fix-navigation */ "./src/js/modules/fix-navigation.js");
 /* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/burger */ "./src/js/modules/burger.js");
+/* harmony import */ var _modules_isotope__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/isotope */ "./src/js/modules/isotope.js");
+/* harmony import */ var _modules_isotope__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_isotope__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -256,6 +259,47 @@ function listenScroll() {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (navPosition);
+
+/***/ }),
+
+/***/ "./src/js/modules/isotope.js":
+/*!***********************************!*\
+  !*** ./src/js/modules/isotope.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+init();
+
+function init() {
+  var items = document.querySelector('.portfolio__items');
+  var iso = new Isotope(items, {
+    itemSelector: '.portfolio__item-wrapper',
+    masonry: {
+      columnWidth: '.portfolio-sizer'
+    },
+    layoutMode: 'fitRows',
+    transitionDuration: '0.4s'
+  });
+  var filterBtn = document.querySelectorAll('.portfolio__categories .categories__item a');
+  filterBtn.forEach(function (filter) {
+    filter.addEventListener('click', function (e) {
+      e.preventDefault();
+      removerActive();
+      e.target.classList.add('active');
+      var filterData = e.target.getAttribute('data-filter');
+      iso.arrange({
+        filter: filterData
+      });
+    });
+  });
+
+  function removerActive() {
+    filterBtn.forEach(function (a) {
+      a.classList.remove('active');
+    });
+  }
+}
 
 /***/ })
 

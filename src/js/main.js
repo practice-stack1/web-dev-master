@@ -2,6 +2,7 @@ import './basic/ibg';
 import './basic/anim-scroll';
 import navPosition from './modules/fix-navigation';
 import burger from './modules/burger';
+import './modules/isotope';
 
 window.addEventListener('DOMContentLoaded', function() {
   navPosition();

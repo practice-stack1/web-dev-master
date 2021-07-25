@@ -1,0 +1,61 @@
+.hover {
+  position: relative;
+  color: #fff;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  display: none;
+  transition: all 0.4s ease;
+  &__title {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 15px 0;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.4s ease;
+  }
+
+  &__categories {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0 0 35px 0;
+  }
+
+  &__links {
+    text-align: center;
+    transition: all 0.4s ease;
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+
+  &__view {
+    display: inline-block;
+    padding: 0;
+    transition: all 0.4s ease;
+  }
+
+  img.hover__view-img {
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+    width: 25px;
+    height: 25px;
+  }
+
+  &__code {
+    display: inline-block;
+    padding: 0;
+    transition: all 0.4s ease;
+  }
+
+  img.hover__code-img {
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+    width: 30px;
+    height: 30px;
+  }
+}

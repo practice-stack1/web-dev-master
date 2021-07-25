@@ -2,13 +2,16 @@
   display: inline-block;
   min-height: 42px;
   min-width: 102px;
-  border: 1px solid #76818d;
-  color: #76818d;
+  background-color: $main-color;
+  color: #fff;
   padding: 13px 16px;
   border-radius: 6px;
   text-align: center;
   transition: all 0.3s ease;
-  @media(min-width: 767px){
+  @media(min-width: 992px){
+    border: 1px solid #76818d;
+    color: #76818d;
+    background-color: transparent;
     &:hover{
       background-color: $main-color;
       color: #fff;
