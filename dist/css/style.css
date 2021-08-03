@@ -702,6 +702,196 @@ h6 {
   height: 30px;
 }
 
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.overlay._visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-portfolio {
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-portfolio__wrapper {
+  position: relative;
+  width: 400px;
+  height: 350px;
+  position: fixed;
+  top: 180px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  text-align: center;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.modal-portfolio__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 3;
+  border-radius: 10px;
+}
+
+.modal-portfolio__close {
+  position: absolute;
+  right: -40px;
+  top: 9px;
+  z-index: 6;
+}
+
+.modal-portfolio__close span:after,
+.modal-portfolio__close span:before {
+  position: relative;
+  display: block;
+  content: '';
+  width: 32px;
+  height: 2px;
+  background: #aaaaaa;
+}
+
+.modal-portfolio__close span:after {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: -2px;
+}
+
+.modal-portfolio__close span:before {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.modal-portfolio__links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  z-index: 4;
+  position: relative;
+}
+
+.modal-portfolio__view {
+  width: 80px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal-portfolio__view-img {
+  width: 25px;
+  height: 25px;
+}
+
+.modal-portfolio__code {
+  width: 80px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal-portfolio__code-img {
+  width: 30px;
+  height: 30px;
+}
+
+.modal-portfolio__title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  margin: 3px 0 15px 0;
+  color: #fff;
+  position: relative;
+  z-index: 4;
+  line-height: 24px;
+}
+
+.modal-portfolio__title span {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 3px;
+}
+
+.modal-portfolio__categories {
+  text-align: center;
+  color: #fff;
+  margin: 0 0 30px 0;
+  position: relative;
+  z-index: 4;
+  line-height: 24px;
+}
+
+.modal-portfolio__categories span {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 3px;
+}
+
+.modal-portfolio__content {
+  padding: 20px 15px 30px;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.modal-portfolio._visible {
+  opacity: 1;
+  visibility: visible;
+}
+
 ._fix {
   position: fixed;
 }
@@ -956,6 +1146,50 @@ h6 {
 
   .categories__item {
     padding: 5px;
+  }
+
+  .modal-portfolio__wrapper {
+    width: 300px;
+    height: 250px;
+  }
+
+  .modal-portfolio__close {
+    right: 10px;
+    top: 20px;
+  }
+
+  .modal-portfolio__close span:after,
+  .modal-portfolio__close span:before {
+    width: 25px;
+    background: dimgray;
+  }
+
+  .modal-portfolio__view {
+    width: 70px;
+    height: 35px;
+  }
+
+  .modal-portfolio__view-img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .modal-portfolio__code {
+    width: 70px;
+    height: 35px;
+  }
+
+  .modal-portfolio__code-img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .modal-portfolio__categories {
+    display: none;
+  }
+
+  .modal-portfolio__content {
+    padding: 10px;
   }
 }
 
