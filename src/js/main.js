@@ -5,6 +5,7 @@ import burger from './modules/burger';
 import './modules/isotope';
 import isMobile from './modules/isMobile';
 import popup from './modules/popup-portfolio';
+import hoverImg from './modules/hoverChangeImg';
 
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -12,5 +13,6 @@ window.addEventListener('DOMContentLoaded', function() {
   burger('.menu__burger', '.menu__body', '.menu__item a');
   isMobile('.portfolio__item');
   popup('.portfolio__item', '.modal-portfolio', '.overlay', '.modal-portfolio__close');
-  
+  hoverImg('.portfolio__item');
+
 });

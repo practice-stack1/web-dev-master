@@ -208,6 +208,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_isotope__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_isotope__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _modules_isMobile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/isMobile */ "./src/js/modules/isMobile.js");
 /* harmony import */ var _modules_popup_portfolio__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/popup-portfolio */ "./src/js/modules/popup-portfolio.js");
+/* harmony import */ var _modules_hoverChangeImg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/hoverChangeImg */ "./src/js/modules/hoverChangeImg.js");
+
 
 
 
@@ -220,6 +222,7 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_burger__WEBPACK_IMPORTED_MODULE_3__["default"])('.menu__burger', '.menu__body', '.menu__item a');
   Object(_modules_isMobile__WEBPACK_IMPORTED_MODULE_5__["default"])('.portfolio__item');
   Object(_modules_popup_portfolio__WEBPACK_IMPORTED_MODULE_6__["default"])('.portfolio__item', '.modal-portfolio', '.overlay', '.modal-portfolio__close');
+  Object(_modules_hoverChangeImg__WEBPACK_IMPORTED_MODULE_7__["default"])('.portfolio__item');
 });
 
 /***/ }),
@@ -301,6 +304,93 @@ function listenScroll() {
 
 /***/ }),
 
+/***/ "./src/js/modules/getModalData.js":
+/*!****************************************!*\
+  !*** ./src/js/modules/getModalData.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var getDataModal = function getDataModal(getSelector) {
+  var title = getSelector.querySelector('.hover__title').textContent,
+      categories = getSelector.querySelector('.hover__categories').textContent,
+      view = getSelector.querySelector('.hover__view').getAttribute('href'),
+      code = getSelector.querySelector('.hover__code').getAttribute('href'),
+      src = getSelector.querySelector('.portfolio__img').getAttribute('data-src');
+  return {
+    title: title,
+    categories: categories,
+    view: view,
+    code: code,
+    src: src
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (getDataModal);
+
+/***/ }),
+
+/***/ "./src/js/modules/hoverChangeImg.js":
+/*!******************************************!*\
+  !*** ./src/js/modules/hoverChangeImg.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _basic_checkMobile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../basic/checkMobile */ "./src/js/basic/checkMobile.js");
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+// import ibg from '../basic/ibg';
+
+
+var hoverImg = function hoverImg(hoverSelector) {
+  if (!_basic_checkMobile__WEBPACK_IMPORTED_MODULE_0__["default"].any()) {
+    (function () {
+      var changeImg = function changeImg(target) {
+        var img = target.querySelector('.portfolio__img');
+        var dataSrc = img.dataset.src;
+        img.setAttribute('data-src', "".concat(img.getAttribute('src')));
+        img.setAttribute('src', "".concat(dataSrc));
+      };
+
+      var hoverSelectors = document.querySelectorAll(hoverSelector);
+
+      var _iterator = _createForOfIteratorHelper(hoverSelectors),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var item = _step.value;
+          item.addEventListener('mouseenter', function (_ref) {
+            var target = _ref.target;
+            changeImg(target);
+          });
+          item.addEventListener('mouseleave', function (_ref2) {
+            var target = _ref2.target;
+            changeImg(target);
+          });
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+    })();
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (hoverImg);
+
+/***/ }),
+
 /***/ "./src/js/modules/isMobile.js":
 /*!************************************!*\
   !*** ./src/js/modules/isMobile.js ***!
@@ -316,9 +406,13 @@ __webpack_require__.r(__webpack_exports__);
 var isMobile = function isMobile(selector) {
   var elements = document.querySelectorAll(selector);
 
-  if (_basic_checkMobile__WEBPACK_IMPORTED_MODULE_0__["default"]) {
+  if (_basic_checkMobile__WEBPACK_IMPORTED_MODULE_0__["default"].any()) {
     elements.forEach(function (element) {
       element.classList.add('mobile');
+    });
+  } else {
+    elements.forEach(function (element) {
+      element.classList.remove('mobile');
     });
   }
 };
@@ -377,11 +471,16 @@ function init() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _getModalData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getModalData */ "./src/js/modules/getModalData.js");
+/* harmony import */ var _setDatModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./setDatModal */ "./src/js/modules/setDatModal.js");
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+
+
 
 var popup = function popup(triggerSelector, modalSelector, overlaySelector, closeSelector) {
   var triggers = document.querySelectorAll(triggerSelector),
@@ -396,9 +495,10 @@ var popup = function popup(triggerSelector, modalSelector, overlaySelector, clos
     for (_iterator.s(); !(_step = _iterator.n()).done;) {
       var trigger = _step.value;
       trigger.addEventListener('click', function (e) {
-        modal.classList.add('_visible');
-        overlay.classList.add('_visible');
-        document.body.style.overflow = 'hidden';
+        if (e.target.closest('.mobile') || e.target.querySelector('.mobile')) {
+          visibleModal();
+          Object(_setDatModal__WEBPACK_IMPORTED_MODULE_1__["default"])(modal, Object(_getModalData__WEBPACK_IMPORTED_MODULE_0__["default"])(e.target.closest('.portfolio__item')));
+        }
       });
     }
   } catch (err) {
@@ -414,9 +514,7 @@ var popup = function popup(triggerSelector, modalSelector, overlaySelector, clos
     for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
       var close = _step2.value;
       close.addEventListener('click', function (e) {
-        modal.classList.remove('_visible');
-        overlay.classList.remove('_visible');
-        document.body.style.overflow = '';
+        unvisibleModal();
       });
     }
   } catch (err) {
@@ -426,17 +524,51 @@ var popup = function popup(triggerSelector, modalSelector, overlaySelector, clos
   }
 
   overlay.addEventListener('click', function (e) {
-    console.log(e.target.closest('.modal'));
-
     if (!e.target.closest('.modal')) {
-      modal.classList.remove('_visible');
-      overlay.classList.remove('_visible');
-      document.body.style.overflow = '';
+      unvisibleModal();
     }
   });
+
+  function visibleModal() {
+    modal.classList.add('_visible');
+    overlay.classList.add('_visible');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function unvisibleModal() {
+    modal.classList.remove('_visible');
+    overlay.classList.remove('_visible');
+    document.body.style.overflow = '';
+  }
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (popup);
+
+/***/ }),
+
+/***/ "./src/js/modules/setDatModal.js":
+/*!***************************************!*\
+  !*** ./src/js/modules/setDatModal.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var setData = function setData(modal, _ref) {
+  var title = _ref.title,
+      categories = _ref.categories,
+      view = _ref.view,
+      code = _ref.code,
+      src = _ref.src;
+  modal.querySelector('.modal-portfolio__title span').textContent = title;
+  modal.querySelector('.modal-portfolio__categories span').textContent = categories;
+  modal.querySelector('.modal-portfolio__view').setAttribute('href', "".concat(view));
+  modal.querySelector('.modal-portfolio__code').setAttribute('href', "".concat(code));
+  modal.querySelector('.modal-portfolio__bg').setAttribute('src', "".concat(src));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (setData);
 
 /***/ })
 

@@ -1,3 +1,5 @@
+import getDataModal from "./getModalData";
+import setData from './setDatModal';
 const popup = (triggerSelector, modalSelector, overlaySelector, closeSelector) => {
   const triggers = document.querySelectorAll(triggerSelector),
         modal = document.querySelector(modalSelector),
@@ -6,26 +8,32 @@ const popup = (triggerSelector, modalSelector, overlaySelector, closeSelector) =
 
   for(let trigger of triggers){
     trigger.addEventListener('click', (e) => {
-        modal.classList.add('_visible');
-        overlay.classList.add('_visible');
-        document.body.style.overflow = 'hidden';
+      if(e.target.closest('.mobile') || e.target.querySelector('.mobile')){
+        visibleModal();
+        setData(modal, getDataModal(e.target.closest('.portfolio__item')));
+      }
     });
   }
   for(let close of closes){
     close.addEventListener('click', (e) => {
-      modal.classList.remove('_visible');
-      overlay.classList.remove('_visible');
-      document.body.style.overflow = '';
+      unvisibleModal();
     });
   }
   overlay.addEventListener('click', (e) => {
-    console.log(e.target.closest('.modal'));
     if(!e.target.closest('.modal')){
-      modal.classList.remove('_visible');
-      overlay.classList.remove('_visible');
-      document.body.style.overflow = '';
+      unvisibleModal();
     }
   });
+  function visibleModal(){
+    modal.classList.add('_visible');
+    overlay.classList.add('_visible');
+    document.body.style.overflow = 'hidden';
+  }
+  function unvisibleModal(){
+    modal.classList.remove('_visible');
+    overlay.classList.remove('_visible');
+    document.body.style.overflow = '';
+  }
 };
 
 export default popup;

@@ -73,7 +73,7 @@ function browserSync(params) {
 function html_project() {
    return src(path.src.html)
     .pipe(fileinclude())
-    .pipe(webphtml())
+    // .pipe(webphtml())
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(dest(path.build.html))
     .pipe(browsersync.reload({stream: true}));
@@ -81,7 +81,7 @@ function html_project() {
 function html() {
     return src(path.src.html)
         .pipe(fileinclude())
-        .pipe(webphtml())
+        // .pipe(webphtml())
         .pipe(dest(path.build.html))
         .pipe(browsersync.reload({stream: true}));
 }
@@ -102,7 +102,7 @@ function css_project() {
             overrideBrowserslist: ['last 5 versions', '>1%', 'ie 8', 'ie 7'],
             cascade: true
         }))
-    .pipe(webpcss())
+    // .pipe(webpcss())
     .pipe(clean_css())
     .pipe(
         rename({
@@ -129,7 +129,7 @@ function css() {
                 overrideBrowserslist: ['last 5 versions', '>1%', 'ie 8', 'ie 7'],
                 cascade: true
             }))
-        .pipe(webpcss())
+        // .pipe(webpcss())
         .pipe(dest(path.build.css))
         .pipe(browsersync.reload({stream: true}));
 }
