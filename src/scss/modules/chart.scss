@@ -1,0 +1,46 @@
+
+
+.chart {
+  position: relative;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background-color: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	position: relative;
+  margin: 0 auto 20px auto;
+}
+
+.chart__body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+	width: 140px;
+	height: 140px;
+	border-radius: 50%;
+	text-align: center;
+	overflow: hidden;
+	z-index: 4;
+}
+.chart__counter {
+	animation: counter 1s steps(11, end) forwards;
+}
+.chart__counter span {
+	font-size: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 140px;
+  color: #2c3e50;
+}
+@keyframes counter {
+	0% {
+	}
+	100% {
+		transform: translate(0, -1540px);
+	}
+}

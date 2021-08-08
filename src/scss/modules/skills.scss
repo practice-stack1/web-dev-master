@@ -1,0 +1,25 @@
+.skills{
+  background: url('../img/backgrounds/skills-bg.jpg')center/cover no-repeat fixed;
+  padding: 80px 0;
+  &__title{
+    margin: 0 0 50px 0;
+  }
+  &__wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    @media(max-width: 568px){
+      justify-content: space-around;
+    }
+  }
+  &__item{
+    width: 33.333%;
+    min-width: 179px;
+    min-height: 215px;
+    margin: 0 0 15px 0;
+    &-title{
+      text-align: center;
+      font-weight: 700;
+      color: #E87E04;
+    }
+  }
+}

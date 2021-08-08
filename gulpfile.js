@@ -14,6 +14,7 @@ let path = {
         fonts: project_folder + '/fonts/',
         php: project_folder + '/',
         phpbasic: project_folder + '/phpmailer/',
+        lib: project_folder + '/lib/',
     },
     src: {
         html: source_folder + '/*.html',
@@ -24,6 +25,7 @@ let path = {
         fonts: source_folder + '/fonts/*.{ttf,woff,woff2}',
         php: source_folder + '/sendmail.php',
         phpbasic: source_folder + '/phpmailer/**',
+        lib: source_folder + '/lib/**',
     },
 
     watch: {
@@ -233,7 +235,10 @@ function iconsFonts() {
         .pipe(dest(path.build.fonts));
 }
 
-
+function lib(){
+    return gulp.src(path.src.lib)
+            .pipe(dest(path.build.lib));
+}
 
 function fonts(params) {
     src(path.src.fonts)
@@ -293,8 +298,8 @@ function php_mailer(){
 
 
 
-let dev = gulp.series(clean, gulp.parallel(html, css, images, fonts, icons, iconsFonts, php_mailer), js, fontsStyle);
-let project = gulp.series(clean, gulp.parallel(html_project, css_project, images, fonts, icons, iconsFonts, php_mailer), js_project, fontsStyle);
+let dev = gulp.series(clean, gulp.parallel(html, css, images, fonts, icons, iconsFonts, php_mailer, lib), js, fontsStyle);
+let project = gulp.series(clean, gulp.parallel(html_project, css_project, images, fonts, icons, iconsFonts, php_mailer, lib), js_project, fontsStyle);
 
 gulp.task('default', gulp.parallel(dev, watchFile, browserSync));
 gulp.task('prod', gulp.parallel(project, browserSync));
@@ -312,3 +317,4 @@ exports.js = js;
 exports.css = css;
 exports.html = html;
 exports.php_mailer = php_mailer;
+exports.lib = lib;

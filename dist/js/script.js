@@ -206,9 +206,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/burger */ "./src/js/modules/burger.js");
 /* harmony import */ var _modules_isotope__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/isotope */ "./src/js/modules/isotope.js");
 /* harmony import */ var _modules_isotope__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_isotope__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _modules_isMobile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/isMobile */ "./src/js/modules/isMobile.js");
-/* harmony import */ var _modules_popup_portfolio__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/popup-portfolio */ "./src/js/modules/popup-portfolio.js");
-/* harmony import */ var _modules_hoverChangeImg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/hoverChangeImg */ "./src/js/modules/hoverChangeImg.js");
+/* harmony import */ var _modules_chart__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/chart */ "./src/js/modules/chart.js");
+/* harmony import */ var _modules_chart__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_modules_chart__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _modules_isMobile__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/isMobile */ "./src/js/modules/isMobile.js");
+/* harmony import */ var _modules_popup_portfolio__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/popup-portfolio */ "./src/js/modules/popup-portfolio.js");
+/* harmony import */ var _modules_hoverChangeImg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/hoverChangeImg */ "./src/js/modules/hoverChangeImg.js");
+
 
 
 
@@ -220,9 +223,9 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_fix_navigation__WEBPACK_IMPORTED_MODULE_2__["default"])();
   Object(_modules_burger__WEBPACK_IMPORTED_MODULE_3__["default"])('.menu__burger', '.menu__body', '.menu__item a');
-  Object(_modules_isMobile__WEBPACK_IMPORTED_MODULE_5__["default"])('.portfolio__item');
-  Object(_modules_popup_portfolio__WEBPACK_IMPORTED_MODULE_6__["default"])('.portfolio__item', '.modal-portfolio', '.overlay', '.modal-portfolio__close');
-  Object(_modules_hoverChangeImg__WEBPACK_IMPORTED_MODULE_7__["default"])('.portfolio__item');
+  Object(_modules_isMobile__WEBPACK_IMPORTED_MODULE_6__["default"])('.portfolio__item');
+  Object(_modules_popup_portfolio__WEBPACK_IMPORTED_MODULE_7__["default"])('.portfolio__item', '.modal-portfolio', '.overlay', '.modal-portfolio__close');
+  Object(_modules_hoverChangeImg__WEBPACK_IMPORTED_MODULE_8__["default"])('.portfolio__item');
 });
 
 /***/ }),
@@ -266,6 +269,47 @@ var burger = function burger(burgerSelector, menuSelector, menuItemSelector) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (burger);
+
+/***/ }),
+
+/***/ "./src/js/modules/chart.js":
+/*!*********************************!*\
+  !*** ./src/js/modules/chart.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var elements = document.querySelectorAll('.chart');
+
+var _iterator = _createForOfIteratorHelper(elements),
+    _step;
+
+try {
+  for (_iterator.s(); !(_step = _iterator.n()).done;) {
+    var element = _step.value;
+    var chater = new EasyPieChart(element, {
+      barColor: '#2c3e50',
+      trackColor: '#fff',
+      scaleColor: false,
+      lineWidth: 10,
+      size: 130,
+      animate: {
+        duration: 1000,
+        enabled: true
+      }
+    });
+  }
+} catch (err) {
+  _iterator.e(err);
+} finally {
+  _iterator.f();
+}
 
 /***/ }),
 

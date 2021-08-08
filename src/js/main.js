@@ -3,6 +3,7 @@ import './basic/anim-scroll';
 import navPosition from './modules/fix-navigation';
 import burger from './modules/burger';
 import './modules/isotope';
+import './modules/chart';
 import isMobile from './modules/isMobile';
 import popup from './modules/popup-portfolio';
 import hoverImg from './modules/hoverChangeImg';
