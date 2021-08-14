@@ -7,12 +7,12 @@
   &__wrapper{
     display: flex;
     flex-wrap: wrap;
-    @media(max-width: 568px){
+    @media(max-width: 746px){
       justify-content: space-around;
     }
   }
   &__item{
-    width: 33.333%;
+    width: 25%;
     min-width: 179px;
     min-height: 215px;
     margin: 0 0 15px 0;

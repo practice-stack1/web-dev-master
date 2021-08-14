@@ -922,7 +922,7 @@ h6 {
 }
 
 .skills__item {
-  width: 33.333%;
+  width: 25%;
   min-width: 179px;
   min-height: 215px;
   margin: 0 0 15px 0;
@@ -1011,6 +1011,124 @@ h6 {
   }
 }
 
+.education {
+  padding: 80px 0;
+}
+
+.education__title {
+  margin: 0 0 60px 0;
+}
+
+.timeline {
+  position: relative;
+  min-height: 500px;
+}
+
+.timeline:before {
+  content: '';
+  display: block;
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background: #eee;
+  z-index: -1;
+}
+
+.timeline__item {
+  position: relative;
+  min-height: 150px;
+}
+
+.timeline__item:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.timeline__data {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #eee;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.timeline__data-info {
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.timeline__achievements {
+  width: 40%;
+  padding: 20px;
+}
+
+.timeline__achievements.left {
+  float: left;
+}
+
+.timeline__achievements.left .timeline__achievements-header,
+.timeline__achievements.left .timeline__achievements-subheader,
+.timeline__achievements.left .timeline__achievements-description {
+  text-align: right;
+}
+
+.timeline__achievements.right {
+  float: right;
+}
+
+.timeline__achievements.right .timeline__achievements-header,
+.timeline__achievements.right .timeline__achievements-subheader,
+.timeline__achievements.right .timeline__achievements-description {
+  text-align: left;
+}
+
+.timeline__achievements-header {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #616e7c;
+  margin: 0 0 10px 0;
+}
+
+.timeline__achievements-subheader {
+  font-size: 18px;
+  font-weight: 700;
+  color: #E87E04;
+  margin: 0 0 10px 0;
+  text-align: right;
+}
+
+.timeline__achievements-description {
+  color: #616e7c;
+  font-size: 16px;
+  line-height: 24px;
+}
+
 ._fix {
   position: fixed;
 }
@@ -1021,6 +1139,12 @@ h6 {
 
 ._static {
   position: absolute;
+}
+
+@media (min-width: 768px) {
+  .timeline__item {
+    margin: 0 0 100px 0;
+  }
 }
 
 @media (min-width: 830px) {
@@ -1254,6 +1378,13 @@ h6 {
   }
 }
 
+@media (max-width: 746px) {
+  .skills__wrapper {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
 @media (max-width: 568px) {
   .portfolio__sizer {
     width: 100%;
@@ -1309,11 +1440,6 @@ h6 {
 
   .modal-portfolio__content {
     padding: 10px;
-  }
-
-  .skills__wrapper {
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
   }
 }
 
