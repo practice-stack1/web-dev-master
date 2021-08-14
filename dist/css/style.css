@@ -1030,10 +1030,7 @@ h6 {
   width: 2px;
   height: 100%;
   position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
+  left: 50px;
   background: #eee;
   z-index: -1;
 }
@@ -1041,6 +1038,7 @@ h6 {
 .timeline__item {
   position: relative;
   min-height: 150px;
+  margin: 0 0 30px 0;
 }
 
 .timeline__item:after {
@@ -1066,12 +1064,7 @@ h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
+  font-weight: 600;
 }
 
 .timeline__data-info {
@@ -1083,22 +1076,13 @@ h6 {
 }
 
 .timeline__achievements {
-  width: 40%;
-  padding: 20px;
-}
-
-.timeline__achievements.left {
-  float: left;
+  max-width: 70%;
 }
 
 .timeline__achievements.left .timeline__achievements-header,
 .timeline__achievements.left .timeline__achievements-subheader,
 .timeline__achievements.left .timeline__achievements-description {
-  text-align: right;
-}
-
-.timeline__achievements.right {
-  float: right;
+  text-align: left;
 }
 
 .timeline__achievements.right .timeline__achievements-header,
@@ -1124,8 +1108,8 @@ h6 {
 }
 
 .timeline__achievements-description {
-  color: #616e7c;
   font-size: 16px;
+  color: #616e7c;
   line-height: 24px;
 }
 
@@ -1142,8 +1126,43 @@ h6 {
 }
 
 @media (min-width: 768px) {
+  .timeline:before {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+
   .timeline__item {
     margin: 0 0 100px 0;
+  }
+
+  .timeline__data {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+
+  .timeline__achievements {
+    width: 40%;
+    padding: 20px;
+  }
+
+  .timeline__achievements.left {
+    float: left;
+  }
+
+  .timeline__achievements.left .timeline__achievements-header,
+  .timeline__achievements.left .timeline__achievements-subheader,
+  .timeline__achievements.left .timeline__achievements-description {
+    text-align: right;
+  }
+
+  .timeline__achievements.right {
+    float: right;
   }
 }
 
@@ -1246,6 +1265,18 @@ h6 {
 
   .portfolio__item-wrapper {
     width: 33.333%;
+  }
+
+  .timeline__achievements-header {
+    font-size: calc(16px + 2 * ((100vw - 320px) / 850));
+  }
+
+  .timeline__achievements-subheader {
+    font-size: calc(16px + 2 * ((100vw - 320px) / 850));
+  }
+
+  .timeline__achievements-description {
+    font-size: calc(14px + 2 * ((100vw - 320px) / 850));
   }
 }
 
@@ -1375,6 +1406,33 @@ h6 {
 
   .services {
     padding: 60px 0 30px 0;
+  }
+
+  .timeline__item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .timeline__data-info {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .timeline__data {
+    width: 100px;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100px;
+            flex: 0 0 100px;
+    height: 100px;
+    left: 0;
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
+    margin: 0 20px 0 0;
   }
 }
 
