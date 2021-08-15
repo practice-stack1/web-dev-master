@@ -9,8 +9,8 @@
     height: 100%;
     position: absolute;
     left: 50px;
-    background: #eee;
-    z-index: -1;
+    background: rgb(206, 206, 206);
+    z-index: 1;
     @media(min-width: 768px){
       left: 50%;
       transform: translateX(-50%);
@@ -21,6 +21,9 @@
     position: relative;
     min-height: 150px;
     margin: 0 0 30px 0;
+    &:last-child{
+      margin: 0;
+    }
     &:after{
       content: "";
       display: table;
@@ -41,12 +44,13 @@
     width: 150px;
     border-radius: 50%;
     background: #fff;
-    border: 1px solid #eee;
+    border: 1px solid rgb(206, 206, 206);
     justify-self: center;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 600;
+    z-index: 2;
     &-info {
       text-transform: uppercase;
       font-size: 18px;
